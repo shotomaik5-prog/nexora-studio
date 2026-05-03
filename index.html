@@ -3,37 +3,198 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexora Studio | Premium Design</title>
+    <title>Nexora Studio | Professional Design Solutions</title>
     <style>
-        /* تنسيق الألوان والخطوط */
-        body {
-            background-color: #0b0c10;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
+        :root {
+            --bg-dark: #000000;
+            --accent-purple: #BB86FC;
+            --accent-blue: #007BFF;
+            --text-main: #FFFFFF;
+            --text-dim: #A0A0A0;
+            --glass: rgba(255, 255, 255, 0.03);
+            --border: rgba(187, 134, 252, 0.2);
+            --grad: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
         }
-        /* قسم البداية */
-        .hero {
-            padding: 60px 20px;
-        }
-        h1 {
-            color: #66fcf1; /* لون النيون */
-            font-size: 3rem;
-            text-shadow: 0 0 15px #66fcf1;
-        }
-        /* قسم الخدمات */
-        .services {
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background: var(--bg-dark); color: var(--text-main); line-height: 1.6; overflow-x: hidden; }
+
+        /* Header */
+        header {
+            padding: 25px 8%;
             display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            padding: 20px;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(15px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
         }
-        /* البطاقات الزجاجية */
-        .card {
-            background: rgba(255, 255, 255, 0.05);
+        .logo { 
+            font-size: 1.7rem; font-weight: 800; letter-spacing: 3px;
+            background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(187, 134, 252, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 10%;
+            background: radial-gradient(circle at 50% 50%, #121212 0%, #000000 100%);
+        }
+        .hero h1 { font-size: 4rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: -1px; }
+        .hero h1 span { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.3rem; color: var(--text-dim); max-width: 800px; margin-bottom: 40px; }
+
+        /* Stats Bar */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            padding: 50px 10%;
+            background: var(--glass);
+            border-y: 1px solid var(--border);
+        }
+        .stat-box h3 { font-size: 2.5rem; color: var(--accent-purple); }
+        .stat-box p { font-size: 0.9rem; color: var(--text-dim); text-transform: uppercase; }
+
+        /* Services Grid */
+        .services-container { padding: 100px 8%; text-align: center; }
+        .services-container h2 { font-size: 3rem; margin-bottom: 60px; }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--glass);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+            transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: left;
+            position: relative;
+        }
+        .service-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--accent-purple);
+            box-shadow: 0 20px 40px rgba(187, 134, 252, 0.1);
+        }
+        .service-card h3 { font-size: 1.5rem; margin-bottom: 15px; color: var(--accent-purple); }
+        .service-card p { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 30px; height: 50px; }
+        .service-card .price-tag { font-size: 1.8rem; font-weight: 700; color: #fff; margin-bottom: 20px; display: block;}
+        
+        .cta-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border: 1px solid var(--accent-purple);
+            color: var(--accent-purple);
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .cta-btn:hover { background: var(--accent-purple); color: #000; }
+
+        /* Footer */
+        footer {
+            padding: 60px 8%;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            background: #050505;
+        }
+        .contact-info { margin-bottom: 30px; color: var(--text-dim); }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .stats { flex-direction: column; gap: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">NEXORA</div>
+        <a href="https://wa.me/249115213883" class="cta-btn">WhatsApp Support</a>
+    </header>
+
+    <section class="hero">
+        <h1>CREATIVE DESIGN <span>BEYOND BORDERS</span></h1>
+        <p>Premium visual solutions for elite professionals and scaling businesses. We turn your identity into a global statement.</p>
+        <a href="#services" class="cta-btn" style="padding: 18px 40px; font-size: 1.1rem; background: var(--accent-purple); color: #000;">Explore Services</a>
+    </section>
+
+    <section class="stats">
+        <div class="stat-box"><h3>100+</h3><p>Projects Done</p></div>
+        <div class="stat-box"><h3>24h</h3><p>Fast Turnaround</p></div>
+        <div class="stat-box"><h3>5.0</h3><p>Global Rating</p></div>
+    </section>
+
+    <section id="services" class="services-container">
+        <h2>Our Specialized Services</h2>
+        <div class="grid">
+            <div class="service-card">
+                <h3>CV & Resume Design</h3>
+                <p>ATS-friendly, modern layouts that secure interviews at top global firms.</p>
+                <span class="price-tag">$39+</span>
+                <a href="#" class="cta-btn">Get Started</a>
+            </div>
+
+            <div class="service-card">
+                <h3>Logo & Brand Identity</h3>
+                <p>Meticulous branding that captures your essence and commands authority.</p>
+                <span class="price-tag">$59+</span>
+                <a href="#" class="cta-btn">Get Started</a>
+            </div>
+
+            <div class="service-card">
+                <h3>UI/UX Design</h3>
+                <p>High-converting digital interfaces with modern Glassmorphism aesthetics.</p>
+                <span class="price-tag">$99+</span>
+                <a href="#" class="cta-btn">Get Started</a>
+            </div>
+
+            <div class="service-card">
+                <h3>Business Cards & Stationery</h3>
+                <p>Professional print-ready assets for seamless networking experiences.</p>
+                <span class="price-tag">$29+</span>
+                <a href="#" class="cta-btn">Get Started</a>
+            </div>
+
+            <div class="service-card">
+                <h3>Posters & Flyers</h3>
+                <p>Impactful visual storytelling for your events and digital marketing.</p>
+                <span class="price-tag">$45+</span>
+                <a href="#" class="cta-btn">Get Started</a>
+            </div>
+
+            <div class="service-card">
+                <h3>Content Visual Design</h3>
+                <p>Custom social media assets tailored for high engagement and reach.</p>
+                <span class="price-tag">$49+</span>
+                <a href="#" class="cta-btn">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="contact-info">
+            <p>Nexora Studio - Khartoum, Sudan</p>
+            <p>Email: hello@nexorastudio.co | WhatsApp: +249115213883</p>
+        </div>
+        <p style="font-size: 0.8rem; opacity: 0.5;">&copy; 2026 NEXORA STUDIO. ALL RIGHTS RESERVED.</p>
+    </footer>
+
+</body>
+</html>
             border: 1px solid #66fcf1;
             border-radius: 15px;
             padding: 30px;
